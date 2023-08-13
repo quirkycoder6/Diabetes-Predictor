@@ -1,0 +1,138 @@
+<MainLayout>:
+
+    BoxLayout:
+        size: root.width, root.height
+        orientation: "vertical"
+        spacing: 20
+        padding: 20
+        background_color: (192/255, 150/255, 72/255, 1)
+        canvas.before:
+            Color:
+                rgba: self.background_color
+            Rectangle:
+                size: self.size
+                pos: self.pos
+
+        Label:
+            size_hint: ( 1, .1)
+            text: " Diabetes Predictor "
+            font_size: 34
+            background_color: (62/255, 33/255, 152/255, 1)
+            canvas.before:
+                Color:
+                    rgba: self.background_color
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+
+        GridLayout:
+            size_hint: ( 1, .85)
+            spacing: 20
+            padding: 20
+            cols: 2
+
+            Label:
+                text: "Pregnancy count\n{Number of times pregnant}"
+                font_size: 28
+                background_color: (210/255, 187/255, 157/255, 1)
+            TextInput:
+                id: f1
+                hint_text:'Enter value'
+                pos_hint: {'center_x': 0.5, 'center_y': 0.705}
+                size_hint: 0.15, 0.1
+                on_text: app.process("f1")
+            Label:
+                text: "Glucose level\n{Plasma glucose concentration, 2 hours in an oral glucose tolerance test}"
+                font_size: 28
+                background_color: (210/255, 187/255, 157/255, 1)
+            TextInput:
+                id: f2
+                hint_text:'Enter value'
+                pos_hint: {'center_x': 0.5, 'center_y': 0.705}
+                size_hint: 0.15, 0.1
+                on_text: app.process("f2")
+            Label:
+                text: "Blood pressure\n{Diastolic blood pressure (mm Hg)}"
+                font_size: 28
+                background_color: (210/255, 187/255, 157/255, 1)
+            TextInput:
+                id: f3
+                hint_text:'Enter value'
+                pos_hint: {'center_x': 0.5, 'center_y': 0.705}
+                size_hint: 0.15, 0.1
+                on_text: app.process("f3")
+            Label:
+                text: "Skin thickness\n{Triceps skin fold thickness (mm)}"
+                font_size: 28
+                background_color: (210/255, 187/255, 157/255, 1)
+            TextInput:
+                id: f4
+                hint_text:'Enter value'
+                pos_hint: {'center_x': 0.5, 'center_y': 0.705}
+                size_hint: 0.15, 0.1
+                on_text: app.process("f4")
+            Label:
+                text: "Insulin level\n{2-Hour serum insulin (mcU/ml))}"
+                font_size: 28
+                background_color: (210/255, 187/255, 157/255, 1)
+            TextInput:
+                id: f5
+                hint_text:'Enter value'
+                pos_hint: {'center_x': 0.5, 'center_y': 0.705}
+                size_hint: 0.15, 0.1
+                on_text: app.process("f5")
+            Label:
+                text: "BMI\n{Body mass index (weight in kg/(height in m)^2)}"
+                font_size: 28
+                background_color: (210/255, 187/255, 157/255, 1)
+            TextInput:
+                id: f6
+                hint_text:'Enter value'
+                pos_hint: {'center_x': 0.5, 'center_y': 0.705}
+                size_hint: 0.15, 0.1
+                on_text: app.process("f6")
+            Label:
+                text: "Diabetes Pedigree Function"
+                font_size: 28
+                background_color: (210/255, 187/255, 157/255, 1)
+            TextInput:
+                id: f7
+                hint_text:'Enter value'
+                pos_hint: {'center_x': 0.5, 'center_y': 0.705}
+                size_hint: 0.15, 0.1
+                on_text: app.process("f7")
+            Label:
+                text: "Age\n{in years} "
+                font_size: 28
+                background_color: (210/255, 187/255, 157/255, 1)
+            TextInput:
+                id: f8
+                hint_text:'Enter value'
+                pos_hint: {'center_x': 0.5, 'center_y': 0.705}
+                size_hint: 0.15, 0.1
+                on_text: app.process("f8")
+
+        Button:
+            text: "Calculate"
+            font_size: 28
+            size_hint: (.2, .075)
+            pos_hint: {'center_x': 0.5}
+            background_color: (157/255, 157/255, 157/255, 1)
+            on_press: app.calculate()
+
+        BoxLayout:
+            orientation: "horizontal"
+            size_hint: (.3, .075)
+            pos_hint: {'center_x' : 0.45}
+            spacing: 10
+
+            Label:
+                text: "Result : "
+                font_size: 28
+                color: (245/255, 187/255, 239/255, 1)
+
+            Label:
+                id: result
+                text: ""
+                font_size: 32
+                color: (45/255, 227/255, 189/255, 1)
